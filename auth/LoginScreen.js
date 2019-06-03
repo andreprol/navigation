@@ -15,7 +15,8 @@ export default class LoginScreen extends React.Component {
 
     this.cadastrar = this.cadastrar.bind(this);
     this.logar = this.logar.bind(this);
-    this.sair=this.sair.bind(this);
+    this.sair = this.sair.bind(this);
+    this.recuperar = this.recuperar.bind(this);
 
   }
 
@@ -34,7 +35,7 @@ export default class LoginScreen extends React.Component {
 
   }
 
-  sair(){
+  sair() {
     firebase.auth().signOut();
     alert('O usuário saiu do sistema')
 
@@ -54,6 +55,10 @@ export default class LoginScreen extends React.Component {
           alert('Usuário cadastrado com sucesso!!');
         }
       })
+  }
+
+  recuperar() {
+    this.props.navigation.navigate('Recuperar')
   }
 
 
@@ -84,7 +89,7 @@ export default class LoginScreen extends React.Component {
           </TouchableOpacity>
         </View>
         <View style={styles.box04}>
-          <TouchableOpacity onPress={() => { alert('Já era!!') }}>
+          <TouchableOpacity onPress={this.recuperar}>
             <Text style={styles.texto2}>Esqueceu sua senha?</Text>
           </TouchableOpacity>
         </View>
@@ -236,6 +241,6 @@ const styles = StyleSheet.create({
     padding: 10,
     backgroundColor: 'red',
     borderRadius: 5
-    
+
   },
 });
