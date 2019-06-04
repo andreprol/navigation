@@ -23,6 +23,8 @@ export default class RecuperarSenha extends React.Component {
         }
 
         this.recuperarsenha = this.recuperarsenha.bind(this)
+        this.voltarlogin = this.voltarlogin.bind(this)
+        this.irnavegacao = this.irnavegacao.bind(this)
     }
 
     recuperarsenha() {
@@ -42,6 +44,16 @@ export default class RecuperarSenha extends React.Component {
         });
     }
 
+    voltarlogin() {
+        this.props.navigation.navigate('Login')
+
+    }
+
+    irnavegacao() {
+        this.props.navigation.navigate('Main')
+
+    }
+
     render() {
         return (
             <View style={styles.container}>
@@ -58,6 +70,18 @@ export default class RecuperarSenha extends React.Component {
                         <Text>Recuperar Senha</Text>
                     </TouchableOpacity>
                 </View>
+                <View style={styles.box04}>
+                </View>
+                <View style={styles.box05}>
+                    <TouchableOpacity style={styles.buttonStyle2} onPress={this.voltarlogin}>
+                        <Text>Voltar Login</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.buttonStyle3} onPress={this.irnavegacao}>
+                        <Text>Ir navegação</Text>
+                    </TouchableOpacity>
+
+                </View>
+
 
             </View>
         )
@@ -89,6 +113,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         padding: 10,
     },
+
     texto1: {
         flex: 1,
         height: 40,
@@ -105,8 +130,8 @@ const styles = StyleSheet.create({
     },
     texto4: {
         flex: 1,
-        height: 40,
-        width: 200,
+        height: 20,
+        width: 250,
         backgroundColor: 'white',
         borderColor: 'gray',
         borderWidth: 1
@@ -115,7 +140,28 @@ const styles = StyleSheet.create({
         flex: 1,
 
     },
+    box04: {
+        flex: 4,
+
+    },
+    box05: {
+        flex: 1,
+        flexDirection: 'row',
+
+    },
     buttonStyle: {
+        marginTop: 15,
+        padding: 10,
+        backgroundColor: 'green',
+        borderRadius: 5
+    },
+    buttonStyle2: {
+        marginTop: 15,
+        padding: 10,
+        backgroundColor: 'blue',
+        borderRadius: 5
+    },
+    buttonStyle3: {
         marginTop: 15,
         padding: 10,
         backgroundColor: 'green',
