@@ -11,13 +11,20 @@ export default class LoginScreen extends React.Component {
       senha: '',
       email: '',
       senha2: '',
-      nome:''
     }
 
     this.cadastrar = this.cadastrar.bind(this);
     this.logar = this.logar.bind(this);
     this.sair = this.sair.bind(this);
     this.recuperar = this.recuperar.bind(this);
+
+    firebase.auth().onAuthStateChanged((user)=>{
+      if(user){
+         firebase.database().ref('usuarios').child(user.uid).set({
+          email: this.state.email
+        })
+      }
+    })
 
   }
 
@@ -41,20 +48,6 @@ export default class LoginScreen extends React.Component {
     alert('O usuário saiu do sistema')
 
   }
-
-  componentWillUnmount() {
-
-    let user = firebase.auth().currentUser
-
-    if (user) {
-      firebase.database().ref('user' + user.uid).set({
-
-        nome: this.state.nome,
-
-      })
-    }
-  }
-
 
   cadastrar() {
     firebase.auth().createUserWithEmailAndPassword(
