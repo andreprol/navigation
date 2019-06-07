@@ -18,11 +18,12 @@ export default class LoginScreen extends React.Component {
     this.sair = this.sair.bind(this);
     this.recuperar = this.recuperar.bind(this);
 
-    firebase.auth().onAuthStateChanged((user)=>{
-      if(user){
-         firebase.database().ref('usuarios').child(user.uid).set({
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        firebase.database().ref('usuarios').child(user.uid).set({
           email: this.state.email
         })
+        
       }
     })
 
