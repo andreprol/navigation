@@ -25,6 +25,7 @@ export default class App extends React.Component {
     firebase.auth().onAuthStateChanged((user)=>{
       if(user){
         alert('Login realizado com sucesso!!')
+        
       }
     })
   }

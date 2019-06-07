@@ -38,9 +38,11 @@ export default class LoginScreen extends React.Component {
         alert('usuário não encontrado')
       } else if (error.code == 'auth/wrong-password') {
         alert('Senha incorreta')
-      }
-
+      }else {
+          alert('Usuário logou com sucesso!!');
+        }
     })
+    this.props.navigation.navigate('Main')
 
   }
 
@@ -62,8 +64,10 @@ export default class LoginScreen extends React.Component {
           alert('Já existe um usuario com este e-mail');
         } else {
           alert('Usuário cadastrado com sucesso!!');
+          
         }
       })
+      this.props.navigation.navigate('Main')
   }
 
   recuperar() {
