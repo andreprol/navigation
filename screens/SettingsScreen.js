@@ -18,7 +18,7 @@ export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <GoogleAutoComplete apiKey='AIzaSyBnTp41CYat0M60M5K1utOBmdTBR2ya66c' debounce={500} minLength={3}>
+        <GoogleAutoComplete apiKey='xxxxxxxxxxx' debounce={500} minLength={3}>
           {({
             handleTextChange,
             locationResults,
